@@ -47,9 +47,12 @@ while isPlayOnGoing:
         print ("      Sorry, you lost your bet")
 
     wallet += reward
-    print ("Amount in your wallet", wallet, "$")
-
-    keepPlaying = raw_input("continue playing y/n : ")
-    if keepPlaying is 'n' or keepPlaying is 'N':
+    if (wallet <= 0):
+       print ("you don't have money anymore")
        isPlayOnGoing = 0
-       print("Thank your for playing with us, bye.")
+    else:
+        print ("Amount in your wallet", wallet, "$")
+        keepPlaying = raw_input("continue playing y/n : ")
+        if keepPlaying is 'n' or keepPlaying is 'N':
+            isPlayOnGoing = 0
+            print("Thank your for playing with us, bye.")
