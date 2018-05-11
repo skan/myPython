@@ -2,10 +2,10 @@ import random
 from math import ceil
 
 wallet = 1000
-print ("amount in your wallet", wallet, "$")
 
 isPlayOnGoing = 1
 while isPlayOnGoing:
+    print ("Amount in your wallet: {0} $".format(wallet))
     bet_number = -1
     bet_amount = -1
     while (bet_number < 0 or bet_number > 49):
@@ -32,10 +32,9 @@ while isPlayOnGoing:
 
 
     result = random.randrange(49)
-    print ("   the ball is on the number : ", result,)
+    print ("   the ball is on the number : {0}".format(result))
 
     # compute bet reward
-    reward = 0
     if bet_number == result:
         print ("      GOOD: same number ! you win 3*bet") 
         wallet += bet_amount * 4
@@ -50,7 +49,6 @@ while isPlayOnGoing:
        print ("you don't have money anymore")
        isPlayOnGoing = 0
     else:
-        print ("Amount in your wallet", wallet, "$")
         keepPlaying = raw_input("continue playing y/n : ")
         if keepPlaying is 'n' or keepPlaying is 'N':
             isPlayOnGoing = 0
