@@ -7,36 +7,27 @@ isPlayOnGoing = 1
 while isPlayOnGoing:
     bet_number = -1
     bet_amount = -1
-    while (bet_number < 0 or bet_number > 50):
-        isInputWrong=1
-        while isInputWrong:
-            try:
-                bet_number = raw_input ("type the number you wanna bet on: ")
-                bet_number= int (bet_number)
-            except:
-                isInputWrong = 1
-                print ("not a number")
-            else:
-                isInputWrong = 0
-            if (bet_number <0 or bet_number > 50):
-                print ("number must between 0 & 49")
-                isInputWrong = 1
-    
-       
-    isInputWrong = 1
+    while (bet_number < 0 or bet_number > 49):
+        try:
+            bet_number = raw_input ("type the number you wanna bet on: ")
+            bet_number= int (bet_number)
+        except:
+            bet_number = -1
+            print ("not a number")
+        if (bet_number <0 or bet_number > 50):
+            print ("number must between 0 & 49")
+            bet_number = -1
+
     while bet_amount < 0 or bet_amount > wallet:
-        while isInputWrong:
-            try:
-                bet_amount = input ("Amount you wanna bet on: ")
-                bet_amount = int (bet_amount)
-            except:
-                isInputWrong = 1
-                print ("not a number")
-            else:
-                isInputWrong = 0
-            if (bet_amount < 0  or bet_amount > wallet):
-                print("you don't have that amount")
-                isInputWrong = 1
+        try:
+            bet_amount = input ("Amount you wanna bet on: ")
+            bet_amount = int (bet_amount)
+        except:
+            bet_amount = -1
+            print ("not a number")
+        if (bet_amount < 0  or bet_amount > wallet):
+            print("you don't have that amount")
+            bet_amount = -1
 
     wallet -= bet_amount
 
