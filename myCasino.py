@@ -30,7 +30,6 @@ while isPlayOnGoing:
             print("you don't have that amount")
             bet_amount = -1
 
-    wallet -= bet_amount
 
     result = random.randrange(49)
     print ("   the ball is on the number : ", result,)
@@ -39,14 +38,14 @@ while isPlayOnGoing:
     reward = 0
     if bet_number == result:
         print ("      GOOD: same number ! you win 3*bet") 
-        reward = bet_amount * 4
+        wallet += bet_amount * 4
     elif (bet_number % 2) == (result %2 ):
         print ("      Good: same color ! you win 0.5 * bet")
-        reward = ceil(bet_amount * 1.5)
+        wallet += ceil(bet_amount * 1.5)
     else:
         print ("      Sorry, you lost your bet")
+        wallet -= bet_amount
 
-    wallet += reward
     if (wallet <= 0):
        print ("you don't have money anymore")
        isPlayOnGoing = 0
