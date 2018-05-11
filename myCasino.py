@@ -4,15 +4,31 @@ wallet = 1000
 print ("amount in your wallet", wallet, "$")
 
 isPlayOnGoing = 1
+isInputWrong=1
 while isPlayOnGoing:
-    bet_number = input ("type the number you wanna bet on: ")
-    bet_number= int (bet_number)
-    bet_amount = input ("type the amount you wanna bet on: ")
-    bet_amount= int (bet_amount)
+    while isInputWrong:
+        try:
+            bet_number = raw_input ("type the number you wanna bet on: ")
+            bet_number= int (bet_number)
+        except:
+            isInputWrong = 1
+            print ("not a number")
+        else:
+            isInputWrong = 0
+    isInputWrong = 1
+    while isInputWrong:
+        try:
+            bet_amount = input ("type the amount you wanna bet on: ")
+            bet_amount = int (bet_amount)
+        except:
+            isInputWrong = 1
+            print ("not a number")
+        else:
+            isInputWrong = 0
+
     wallet -= bet_amount
 
     result = random.randrange(49)
-
     print ("   the ball is on the number : ", result,)
 
     # compute bet reward
