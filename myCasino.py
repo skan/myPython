@@ -4,11 +4,11 @@ wallet = 1000
 print ("amount in your wallet", wallet, "$")
 
 isPlayOnGoing = 1
-isInputWrong=1
 while isPlayOnGoing:
     bet_number = -1
     bet_amount = -1
     while (bet_number < 0 or bet_number > 50):
+        isInputWrong=1
         while isInputWrong:
             try:
                 bet_number = raw_input ("type the number you wanna bet on: ")
@@ -56,7 +56,8 @@ while isPlayOnGoing:
 
     wallet += reward
     print ("Amount in your wallet", wallet, "$")
-    keepPlaying = raw_input("continue playing y/n")
-    if keepPlaying == "n" or keepPlaying == "N":
+
+    keepPlaying = raw_input("continue playing y/n : ")
+    if keepPlaying is 'n' or keepPlaying is 'N':
        isPlayOnGoing = 0
        print("Thank your for playing with us, bye.")
