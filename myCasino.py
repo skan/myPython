@@ -1,4 +1,5 @@
 import random
+from math import ceil
 
 wallet = 1000
 print ("amount in your wallet", wallet, "$")
@@ -41,7 +42,7 @@ while isPlayOnGoing:
         reward = bet_amount * 4
     elif (bet_number % 2) == (result %2 ):
         print ("      Good: same color ! you win 0.5 * bet")
-        reward = bet_amount * 1.5
+        reward = ceil(bet_amount * 1.5)
     else:
         print ("      Sorry, you lost your bet")
 
