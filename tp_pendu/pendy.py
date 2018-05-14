@@ -1,8 +1,9 @@
 from data import *
 from functions import *
+import random
 
 sk_listToGuess = ["*"]*8
-wordToguess = "fonction"
+wordToguess = random.choice(words_list)
 
 step = 0
 while step < MAX_TRIALS:
@@ -15,3 +16,4 @@ while step < MAX_TRIALS:
       for position in result:
          sk_listToGuess [position] = trial
    step += 1
+print("the word to guess: {0}".format(wordToguess))
