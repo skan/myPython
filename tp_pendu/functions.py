@@ -16,3 +16,11 @@ def load_score ():
       score_loaded = {}
    return score_loaded
 
+def getLetter():
+   trial = raw_input ("give a letter: ")
+   trial = trial.lower()
+   if len(trial) > 1 or not trial.isalpha():
+      print ("you didn't type a correct letter")
+      return getLetter()
+   else:
+      return trial

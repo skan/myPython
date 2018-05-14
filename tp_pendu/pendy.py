@@ -23,7 +23,8 @@ step = 0
 game_score = MAX_TRIALS
 while step < MAX_TRIALS:
    print ("".join(sk_listToGuess))
-   trial = raw_input ("give a letter: ")
+   #trial = raw_input ("give a letter: ")
+   trial = getLetter()
    result = [pos for pos, char in enumerate(wordToguess) if char == str(trial)]
    if len(result) == 0:
       print ("letter not found")
