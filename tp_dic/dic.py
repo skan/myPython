@@ -16,3 +16,13 @@ class OrganizedDico():
             output += message
             i+=1
         return output
+    
+    def sort(self):
+        default_ValList = self.dicoVal[:]
+        default_KeyList = self.dicoKeys[:]
+        self.dicoVal.sort()
+        i = 0
+        for item in self.dicoVal:
+            index = default_ValList.index(item)
+            self.dicoKeys[i]=default_KeyList[index]
+            i+=1

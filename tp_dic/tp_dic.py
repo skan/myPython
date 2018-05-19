@@ -1,4 +1,6 @@
 from dic import *
 
-mesFruits = OrganizedDico(orange=20, pommes=30)
+mesFruits = OrganizedDico(raisin=50,poires=10,orange=20, pommes=30)
+print (mesFruits)
+mesFruits.sort()
 print (mesFruits)
