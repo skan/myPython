@@ -8,3 +8,5 @@ print (mesFruits)
 
 mesFruits.sort()
 print (mesFruits)
+
+print(mesFruits.len())

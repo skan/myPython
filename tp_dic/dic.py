@@ -36,3 +36,6 @@ class OrganizedDico():
             index = default_ValList.index(item)
             self.dicoKeys[i]=default_KeyList[index]
             i+=1
+
+    def len (self):
+        return len(self.dicoKeys)
