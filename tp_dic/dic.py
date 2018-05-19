@@ -41,6 +41,10 @@ class OrganizedDico():
         return len(self.dicoKeys)
 
     def __getitem__(self,item):
+        try:
             index = self.dicoKeys.index(item)
+        except ValueError:
+            return 0
+        else:
             return self.dicoVal[index]
 

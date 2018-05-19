@@ -13,3 +13,6 @@ print(mesFruits.len())
 
 a = mesFruits['raisin']
 print (a)
+
+a = mesFruits['fraises']
+print (a)
