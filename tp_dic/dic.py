@@ -39,3 +39,8 @@ class OrganizedDico():
 
     def len (self):
         return len(self.dicoKeys)
+
+    def __getitem__(self,item):
+            index = self.dicoKeys.index(item)
+            return self.dicoVal[index]
+

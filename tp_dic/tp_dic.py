@@ -10,3 +10,6 @@ mesFruits.sort()
 print (mesFruits)
 
 print(mesFruits.len())
+
+a = mesFruits['raisin']
+print (a)
