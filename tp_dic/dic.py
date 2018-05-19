@@ -26,3 +26,13 @@ class OrganizedDico():
             index = default_ValList.index(item)
             self.dicoKeys[i]=default_KeyList[index]
             i+=1
+
+    def reverse(self):
+        default_ValList = self.dicoVal[:]
+        default_KeyList = self.dicoKeys[:]
+        self.dicoVal.reverse()
+        i = 0
+        for item in self.dicoVal:
+            index = default_ValList.index(item)
+            self.dicoKeys[i]=default_KeyList[index]
+            i+=1

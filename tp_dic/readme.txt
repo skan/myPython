@@ -15,7 +15,7 @@ specifications
     "key in dico" returns true or false
     len (dico) returns number of values in dico
         method sort 
-    methode reverse
+       methode reverse
     for loop: for val in dico allows to browse keys
     method keys
     method values
