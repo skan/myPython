@@ -16,3 +16,12 @@ print (a)
 
 a = mesFruits['fraises']
 print (a)
+
+mesFruits['fraises']=31
+print (mesFruits)
+
+mesFruits['fraises']=41
+print (mesFruits)
+
+mesFruits.reverse()
+print (mesFruits)

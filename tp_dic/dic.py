@@ -47,4 +47,13 @@ class OrganizedDico():
             return 0
         else:
             return self.dicoVal[index]
+    
+    def __setitem__(self,item,value):
+        try:
+            index = self.dicoKeys.index(item)
+        except ValueError:
+            self.dicoKeys.append(item)
+            self.dicoVal.append(value)
+        else:
+            self.dicoVal[index] = value
 
