@@ -74,3 +74,9 @@ class OrganizedDico():
         else:
             return True
     
+    def __add__(self,otherDico):
+        otherDico_size=len(otherDico.dicoKeys)
+        i = 0
+        while (i < otherDico_size):
+            self.dicoKeys.append(otherDico.dicoKeys[i])
+            self.dicoVal.append(otherDico.dicoVal[i])

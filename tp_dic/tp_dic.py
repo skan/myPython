@@ -36,3 +36,10 @@ print (a)
 
 a = 'patates' in mesFruits
 print (a)
+
+mesLegumes = OrganizedDico(patates=70)
+
+print(mesFruits + mesLegumes)
+
+#mesFruits = mesFruits + mesLegumes
+#print (mesFruits)
