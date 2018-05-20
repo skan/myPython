@@ -57,9 +57,12 @@ print (mesLegumes)
 #print (dicoResult)
 
 #print ("mon panier")
-#monPanier = OrganizedDico(cerises=77)
 #print(monPanier)
 
-#print("test addition legumes avec += cerises")
-#mesLegumes += monPanier
-#print (mesLegumes)
+monPanier = OrganizedDico(cerises=77)
+print("test addition legumes avec += cerises")
+mesLegumes += monPanier
+print (mesLegumes)
+print("test addition legumes avec += fruits")
+mesLegumes += mesFruits
+print (mesLegumes)
