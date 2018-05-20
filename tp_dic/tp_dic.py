@@ -30,3 +30,9 @@ print (mesFruits)
 
 del mesFruits['fraises']
 print (mesFruits)
+
+a = 'raisin' in mesFruits
+print (a)
+
+a = 'patates' in mesFruits
+print (a)

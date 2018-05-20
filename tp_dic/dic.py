@@ -66,4 +66,11 @@ class OrganizedDico():
         else:
             del self.dicoKeys[index]
             del self.dicoVal[index]
+    def __contains__ (self,key):
+        try:
+            index = self.dicoKeys.index(key)
+        except ValueError:
+            return False
+        else:
+            return True
     
