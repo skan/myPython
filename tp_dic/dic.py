@@ -1,10 +1,12 @@
 class OrganizedDico():
-    def __init__(self,**dicoInputs):
+    def __init__(self,*copyDico, **dicoInputs):
         self.dicoKeys=[]
         self.dicoVal=[]
         for key,value in dicoInputs.items():
             self.dicoKeys.append(key)
             self.dicoVal.append(value)
+        for dico in copyDico:
+            self +=dico
 
     def __repr__(self):
         dicoSize=len(self.dicoKeys)

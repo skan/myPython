@@ -78,3 +78,7 @@ for k in mesFruits.values():
 
 for k,l in mesFruits.items():
     print ("test items {0} {1} ".format(k,l))
+
+
+monPanier2 = OrganizedDico(mesFruits, cornichon=21, carottes=43)
+print (monPanier2)

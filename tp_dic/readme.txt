@@ -5,7 +5,7 @@ specifications
             list for values
         
         create an empty dico
-    copy from an another dico myDico (otherDico)
+        copy from an another dico myDico (otherDico)
         pre initialized myDico (key1=val1, key2=val2)
         if we delete a key, the val is deleted
         add a value myDico[key] = val 
@@ -17,7 +17,7 @@ specifications
         method sort 
         methode reverse
         for loop: for val in dico allows to browse keys
-    method keys
-    method values
-    method items()
+        method keys
+        method values
+        method items()
         dico1 + dico2
