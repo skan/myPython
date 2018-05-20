@@ -16,7 +16,7 @@ specifications
         len (dico) returns number of values in dico
         method sort 
         methode reverse
-    for loop: for val in dico allows to browse keys
+        for loop: for val in dico allows to browse keys
     method keys
     method values
     method items()

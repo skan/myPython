@@ -107,3 +107,24 @@ class OrganizedDico():
             return result
         else:
             raise StopIteration
+    
+    def keys(self):
+        self.i = 0
+        self.dicoSize=len(self.dicoKeys)
+        while (self.i < self.dicoSize):
+            yield self.dicoKeys[self.i] 
+            self.i +=1
+    
+    def values(self):
+        self.i = 0
+        self.dicoSize=len(self.dicoKeys)
+        while (self.i < self.dicoSize):
+            yield self.dicoVal[self.i] 
+            self.i +=1
+
+    def items(self):
+        self.i = 0
+        self.dicoSize=len(self.dicoKeys)
+        while (self.i < self.dicoSize):
+            yield self.dicoKeys[self.i] , self.dicoVal[self.i]
+            self.i +=1

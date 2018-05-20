@@ -69,3 +69,12 @@ print (mesLegumes)
 
 for k,l in mesFruits:
     print ("item {0} & {1}".format(k,l))
+
+for k in mesFruits.keys():
+    print ("test key {0} ".format(k))
+
+for k in mesFruits.values():
+    print ("test values {0} ".format(k))
+
+for k,l in mesFruits.items():
+    print ("test items {0} {1} ".format(k,l))
