@@ -40,19 +40,19 @@ class OrganizedDico():
     def len (self):
         return len(self.dicoKeys)
 
-    def __getitem__(self,item):
+    def __getitem__(self,key):
         try:
-            index = self.dicoKeys.index(item)
+            index = self.dicoKeys.index(key)
         except ValueError:
             return 0
         else:
             return self.dicoVal[index]
     
-    def __setitem__(self,item,value):
+    def __setitem__(self,key,value):
         try:
-            index = self.dicoKeys.index(item)
+            index = self.dicoKeys.index(key)
         except ValueError:
-            self.dicoKeys.append(item)
+            self.dicoKeys.append(key)
             self.dicoVal.append(value)
         else:
             self.dicoVal[index] = value
