@@ -80,3 +80,13 @@ class OrganizedDico():
         while (i < otherDico_size):
             self.dicoKeys.append(otherDico.dicoKeys[i])
             self.dicoVal.append(otherDico.dicoVal[i])
+            i+=1
+    
+    def __iadd__(self,otherDico):
+        otherDico_size=len(otherDico.dicoKeys)
+        i = 0
+        while (i < otherDico_size):
+            self.dicoKeys.append(otherDico.dicoKeys[i])
+            self.dicoVal.append(otherDico.dicoVal[i])
+
+            i+=1
