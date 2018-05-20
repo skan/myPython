@@ -43,16 +43,23 @@ print (mesFruits)
 print("test in")
 a = 'raisin' in mesFruits
 print (a)
-
 a = 'patates' in mesFruits
 print (a)
-print("test addition")
-#mesLegumes = OrganizedDico(patates=70)
+
+print("test print direct addition fruits avec patates")
+mesLegumes = OrganizedDico(patates=70)
+print (mesLegumes+mesFruits)
+print ("mes legumes pour check, que patates")
+print (mesLegumes)
+
+#print ("print dico result test")
+#dicoResult= mesLegumes + mesFruits
+#print (dicoResult)
+
+#print ("mon panier")
+#monPanier = OrganizedDico(cerises=77)
+#print(monPanier)
+
+#print("test addition legumes avec += cerises")
+#mesLegumes += monPanier
 #print (mesLegumes)
-
-print ("mon panier")
-monPanier = OrganizedDico(cerises=77)
-print(monPanier)
-
-#mesFruits = mesFruits + mesLegumes
-#print (mesFruits)

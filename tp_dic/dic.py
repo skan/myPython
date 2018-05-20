@@ -1,8 +1,7 @@
 class OrganizedDico():
-    dicoKeys=[]
-    dicoVal=[]
-
     def __init__(self,**dicoInputs):
+        self.dicoKeys=[]
+        self.dicoVal=[]
         for key,value in dicoInputs.items():
             self.dicoKeys.append(key)
             self.dicoVal.append(value)
@@ -75,12 +74,17 @@ class OrganizedDico():
             return True
     
     def __add__(self,otherDico):
+        resultatAddition = OrganizedDico()
+        resultatAddition.dicoKeys=self.dicoKeys[:]
+        resultatAddition.dicoVal=self.dicoVal[:]
+
         otherDico_size=len(otherDico.dicoKeys)
         i = 0
         while (i < otherDico_size):
-            self.dicoKeys.append(otherDico.dicoKeys[i])
-            self.dicoVal.append(otherDico.dicoVal[i])
+            resultatAddition.dicoKeys.append(otherDico.dicoKeys[i])
+            resultatAddition.dicoVal.append(otherDico.dicoVal[i])
             i+=1
+        return resultatAddition
     
     def __iadd__(self,otherDico):
         otherDico_size=len(otherDico.dicoKeys)
@@ -88,5 +92,5 @@ class OrganizedDico():
         while (i < otherDico_size):
             self.dicoKeys.append(otherDico.dicoKeys[i])
             self.dicoVal.append(otherDico.dicoVal[i])
-
             i+=1
+        return self
