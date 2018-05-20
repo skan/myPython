@@ -94,3 +94,16 @@ class OrganizedDico():
             self.dicoVal.append(otherDico.dicoVal[i])
             i+=1
         return self
+    
+    def __iter__ (self):
+        self.dicoSize=len(self.dicoKeys)
+        self.i = 0
+        return self
+
+    def next(self):
+        if (self.i < self.dicoSize):
+            result = (self.dicoKeys[self.i] ,self.dicoVal[self.i])
+            self.i +=1
+            return result
+        else:
+            raise StopIteration

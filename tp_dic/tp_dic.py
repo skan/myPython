@@ -66,3 +66,6 @@ print (mesLegumes)
 print("test addition legumes avec += fruits")
 mesLegumes += mesFruits
 print (mesLegumes)
+
+for k,l in mesFruits:
+    print ("item {0} & {1}".format(k,l))
