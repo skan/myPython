@@ -57,3 +57,13 @@ class OrganizedDico():
         else:
             self.dicoVal[index] = value
 
+    def __delitem__(self,key):
+        try:
+            index = self.dicoKeys.index(key)
+        except ValueError:
+            print ("the key {0} doesn't exist in our dictionnary".format(key))
+            return 0
+        else:
+            del self.dicoKeys[index]
+            del self.dicoVal[index]
+    
