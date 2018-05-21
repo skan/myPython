@@ -9,7 +9,8 @@ class OrganizedDico():
             for dico in copyDico:
                 self +=dico
         else:
-            print ("not a dico object")
+            if copyDico:
+                print ("not a dico object")
 
     def __repr__(self):
         dicoSize=len(self.dicoKeys)
