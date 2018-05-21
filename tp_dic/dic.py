@@ -5,11 +5,12 @@ class OrganizedDico():
         for key,value in dicoInputs.items():
             self.dicoKeys.append(key)
             self.dicoVal.append(value)
-        if type(copyDico) is OrganizedDico:
-            for dico in copyDico:
-                self +=dico
-        else:
-            print ("not a dico object")
+        
+        for dico in copyDico:
+            if isinstance(dico, OrganizedDico):
+                self += dico
+            else:
+                raise TypeError ("not a dico object")
 
     def __repr__(self):
         dicoSize=len(self.dicoKeys)
@@ -20,6 +21,9 @@ class OrganizedDico():
             output += message
             i+=1
         return output
+    
+    def __str__(self):
+        return repr(self)
     
     def sort(self):
         default_ValList = self.dicoVal[:]
@@ -65,7 +69,7 @@ class OrganizedDico():
         try:
             index = self.dicoKeys.index(key)
         except ValueError:
-            print ("the key {0} doesn't exist in our dictionnary".format(key))
+            raise ValueError ("the key {0} doesn't exist in our dictionnary".format(key))
             return 0
         else:
             del self.dicoKeys[index]
@@ -86,8 +90,12 @@ class OrganizedDico():
         otherDico_size=len(otherDico.dicoKeys)
         i = 0
         while (i < otherDico_size):
-            resultatAddition.dicoKeys.append(otherDico.dicoKeys[i])
-            resultatAddition.dicoVal.append(otherDico.dicoVal[i])
+            if (otherDico.dicoKeys[i] in self.dicoKeys):
+                key = otherDico.dicoKeys[i]
+                resultatAddition[key]+=otherDico.dicoVal[i]
+            else:
+                resultatAddition.dicoKeys.append(otherDico.dicoKeys[i])
+                resultatAddition.dicoVal.append(otherDico.dicoVal[i])
             i+=1
         return resultatAddition
     
@@ -95,8 +103,12 @@ class OrganizedDico():
         otherDico_size=len(otherDico.dicoKeys)
         i = 0
         while (i < otherDico_size):
-            self.dicoKeys.append(otherDico.dicoKeys[i])
-            self.dicoVal.append(otherDico.dicoVal[i])
+            if (otherDico.dicoKeys[i] in self.dicoKeys):
+                key = otherDico.dicoKeys[i]
+                self[key]+=otherDico.dicoVal[i]
+            else:
+                self.dicoKeys.append(otherDico.dicoKeys[i])
+                self.dicoVal.append(otherDico.dicoVal[i])
             i+=1
         return self
     
