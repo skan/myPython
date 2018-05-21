@@ -69,7 +69,7 @@ class OrganizedDico():
         try:
             index = self.dicoKeys.index(key)
         except ValueError:
-            print ("the key {0} doesn't exist in our dictionnary".format(key))
+            raise ValueError ("the key {0} doesn't exist in our dictionnary".format(key))
             return 0
         else:
             del self.dicoKeys[index]
