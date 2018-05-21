@@ -31,6 +31,14 @@ class dicTest(unittest.TestCase):
         output="raisin = 50 \npommes = 30 \npoires = 10 \norange = 20 \n"
         self.fruits.reverse()
         self.assertEquals(self.fruits.__repr__(), output)
+    
+    def test_length(self):
+        self.assertEquals(self.fruits.len(), 4)
+
+    def test_sort(self):
+        self.fruits.sort()
+        output="poires = 10 \norange = 20 \npommes = 30 \nraisin = 50 \n"
+        self.assertEquals(self.fruits.__repr__(), output)
 
 if __name__ =='__main__':
     unittest.main()
