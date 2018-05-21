@@ -75,35 +75,40 @@ class dicTest(unittest.TestCase):
         result += self.vegetables
         output="orange = 20 \npoires = 10 \npommes = 30 \nraisin = 50 \npotatoes = 140 \n"
         self.assertEquals(result.__repr__(), output)
+        result = self.fruits + self.fruits
+        output="orange = 40 \npoires = 20 \npommes = 60 \nraisin = 100 \n"
+        self.assertEquals(result.__repr__(), output)
 
-##dicoResult= mesLegumes + mesFruits
-##print (dicoResult)
-#
-#print ("mon panier")
-#print(monPanier)
+    def test_for_loop(self):
+        test=""
+        for k,l in self.fruits:
+            test += ("{0} - {1} ".format(k,l))
+        output="orange - 20 poires - 10 pommes - 30 raisin - 50 "
+        self.assertEquals(test, output)
 
-#monPanier = OrganizedDico(cerises=77)
-#print("test addition legumes avec += cerises")
-#mesLegumes += monPanier
-#print (mesLegumes)
-#print("test addition legumes avec += fruits")
-#mesLegumes += mesFruits
-#print (mesLegumes)
-#
-#for k,l in mesFruits:
-#    print ("item {0} & {1}".format(k,l))
-#
-#for k in mesFruits.keys():
-#    print ("test key {0} ".format(k))
-#
-#for k in mesFruits.values():
-#    print ("test values {0} ".format(k))
-#
-#for k,l in mesFruits.items():
-#    print ("test items {0} {1} ".format(k,l))
-#
-#
-#monPanier2 = OrganizedDico(mesFruits, cornichon=21, carottes=43)
+    def test_for_loop_keys(self):
+        test=""
+        for k in self.fruits.keys():
+            test += ("{0} ".format(k))
+        output="orange poires pommes raisin "
+        self.assertEquals(test, output)
+
+    def test_for_loop_values(self):
+        test=""
+        for k in self.fruits.values():
+            test += ("{0} ".format(k))
+        output="20 10 30 50 "
+        self.assertEquals(test, output)
+    
+    def test_init_withObject(self):
+        monPanier2 = OrganizedDico(self.fruits)
+        output="orange = 20 \npoires = 10 \npommes = 30 \nraisin = 50 \n"
+        self.assertEquals(monPanier2.__repr__(), output)
+
+        with self.assertRaises(TypeError):
+            monPanier2 = OrganizedDico("blabla")
+
+
 #print (monPanier2)
 #
 #print ("test blabla input")
