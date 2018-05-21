@@ -21,6 +21,9 @@ class OrganizedDico():
             i+=1
         return output
     
+    def __str__(self):
+        return repr(self)
+    
     def sort(self):
         default_ValList = self.dicoVal[:]
         default_KeyList = self.dicoKeys[:]
