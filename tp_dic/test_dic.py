@@ -41,7 +41,7 @@ class dicTest(unittest.TestCase):
         output="poires = 10 \norange = 20 \npommes = 30 \nraisin = 50 \n"
         self.assertEquals(self.fruits.__repr__(), output)
     
-    def test_set_item(self):
+    def test_get_item(self):
         self.assertEquals(self.fruits['raisin'], 50)
         self.assertEquals(self.fruits['pommes'], 30)
         self.assertEquals(self.fruits['orange'], 20)
@@ -72,15 +72,9 @@ class dicTest(unittest.TestCase):
         output="orange = 20 \npoires = 10 \npommes = 30 \nraisin = 50 \npotatoes = 70 \n"
         result = self.fruits + self.vegetables
         self.assertEquals(result.__repr__(), output)
-
-
-#print("test print direct addition fruits avec patates")
-#mesLegumes = OrganizedDico(patates=70)
-#print (mesLegumes+mesFruits)
-#print ("mes legumes pour check, que patates")
-#print (mesLegumes)
-#
-##print ("print dico result test"):wa
+        result += self.vegetables
+        output="orange = 20 \npoires = 10 \npommes = 30 \nraisin = 50 \npotatoes = 140 \n"
+        self.assertEquals(result.__repr__(), output)
 
 ##dicoResult= mesLegumes + mesFruits
 ##print (dicoResult)

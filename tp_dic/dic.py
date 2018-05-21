@@ -99,8 +99,12 @@ class OrganizedDico():
         otherDico_size=len(otherDico.dicoKeys)
         i = 0
         while (i < otherDico_size):
-            self.dicoKeys.append(otherDico.dicoKeys[i])
-            self.dicoVal.append(otherDico.dicoVal[i])
+            if (otherDico.dicoKeys[i] in self.dicoKeys):
+                key = otherDico.dicoKeys[i]
+                self[key]+=otherDico.dicoVal[i]
+            else:
+                self.dicoKeys.append(otherDico.dicoKeys[i])
+                self.dicoVal.append(otherDico.dicoVal[i])
             i+=1
         return self
     
