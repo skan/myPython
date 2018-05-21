@@ -108,12 +108,9 @@ class dicTest(unittest.TestCase):
         with self.assertRaises(TypeError):
             monPanier2 = OrganizedDico("blabla")
 
-
-#print (monPanier2)
-#
-#print ("test blabla input")
-#blabla={}
-#monPanier2 = OrganizedDico(blabla, cornichon=21, carottes=43)
+        monPanier2 = OrganizedDico(self.fruits, banane=1)
+        output="banane = 1 \norange = 20 \npoires = 10 \npommes = 30 \nraisin = 50 \n"
+        self.assertEquals(monPanier2.__repr__(), output)
 
 if __name__ =='__main__':
     unittest.main()
