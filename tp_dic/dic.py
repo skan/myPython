@@ -5,8 +5,11 @@ class OrganizedDico():
         for key,value in dicoInputs.items():
             self.dicoKeys.append(key)
             self.dicoVal.append(value)
-        for dico in copyDico:
-            self +=dico
+        if type(copyDico) is OrganizedDico:
+            for dico in copyDico:
+                self +=dico
+        else:
+            print ("not a dico object")
 
     def __repr__(self):
         dicoSize=len(self.dicoKeys)

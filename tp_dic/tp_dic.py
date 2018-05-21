@@ -82,3 +82,7 @@ for k,l in mesFruits.items():
 
 monPanier2 = OrganizedDico(mesFruits, cornichon=21, carottes=43)
 print (monPanier2)
+
+print ("test blabla input")
+blabla={}
+monPanier2 = OrganizedDico(blabla, cornichon=21, carottes=43)
