@@ -5,12 +5,12 @@ class OrganizedDico():
         for key,value in dicoInputs.items():
             self.dicoKeys.append(key)
             self.dicoVal.append(value)
-        if type(copyDico) is OrganizedDico:
-            for dico in copyDico:
-                self +=dico
-        else:
-            if copyDico:
-                print ("not a dico object")
+        
+        for dico in copyDico:
+            if isinstance(dico, OrganizedDico):
+                self += dico
+            else:
+                raise TypeError ("not a dico object")
 
     def __repr__(self):
         dicoSize=len(self.dicoKeys)
@@ -90,8 +90,12 @@ class OrganizedDico():
         otherDico_size=len(otherDico.dicoKeys)
         i = 0
         while (i < otherDico_size):
-            resultatAddition.dicoKeys.append(otherDico.dicoKeys[i])
-            resultatAddition.dicoVal.append(otherDico.dicoVal[i])
+            if (otherDico.dicoKeys[i] in self.dicoKeys):
+                key = otherDico.dicoKeys[i]
+                resultatAddition[key]+=otherDico.dicoVal[i]
+            else:
+                resultatAddition.dicoKeys.append(otherDico.dicoKeys[i])
+                resultatAddition.dicoVal.append(otherDico.dicoVal[i])
             i+=1
         return resultatAddition
     
