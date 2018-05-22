@@ -1,3 +1,6 @@
 [submodule "external_cherryPy"]
 	path = external_cherryPy
 	url = https://github.com/cherrypy/cherrypy.git
+[submodule "pysheeet"]
+	path = pysheeet
+	url = https://github.com/crazyguitar/pysheeet.git
