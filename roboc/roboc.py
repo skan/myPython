@@ -8,7 +8,7 @@ Exécutez-le avec Python pour lancer le jeu.
 
 import os
 
-from carte import Carte
+from carte import *
 
 # On charge les cartes existantes
 cartes = []
@@ -26,6 +26,9 @@ print("Labyrinthes existants :")
 for i, carte in enumerate(cartes):
     print("  {} - {}".format(i + 1, carte.nom))
 
+choice = input  ("please type the map you want to play: ")
+current_map = cartes[choice-1]
+afficher_labyrinthe(current_map.labyrinthe)
 # Si il y a une partie sauvegardée, on l'affiche, à compléter
 
 # ... Complétez le programme ...
