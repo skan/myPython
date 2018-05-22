@@ -19,6 +19,14 @@ def afficher_labyrinthe(labyrinthe_l):
     labyrinthe_c = "".join(labyrinthe_l)
     print(labyrinthe_c)
 
+def get_robot_position(labyrinthe_l):
+    i=0
+    while i < len (labyrinthe_l):
+        if 'X' in labyrinthe_l[i]:
+            j = labyrinthe_l[i].index('X')
+            return i,j
+        i +=1
+    return 0
 
 class Carte:
 
