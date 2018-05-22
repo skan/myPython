@@ -1,4 +1,5 @@
-read cartes and display content
+display card on terminal
+read card from file
 move robot neso
 robot stops on wall
 robot manages doors

@@ -18,6 +18,7 @@ for nom_fichier in os.listdir("cartes"):
         nom_carte = nom_fichier[:-3].lower()
         with open(chemin, "r") as fichier:
             contenu = fichier.read()
+            cartes.append (Carte(nom_carte,contenu))
             # Création d'une carte, à compléter
 
 # On affiche les cartes existantes
