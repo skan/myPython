@@ -1,0 +1,10 @@
+read cartes and display content
+move robot neso
+robot stops on wall
+robot manages doors
+robot through U : win game
+robot moves with numbers (e3)
+select easy or hard card
+save game at each move
+check that there is no game ongoing and select start old/new game
+
