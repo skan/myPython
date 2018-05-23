@@ -17,7 +17,7 @@ class Carte:
     def __init__(self, nom, chaine):
         self.nom = nom
         self.labyrinthe = creer_labyrinthe_depuis_chaine(chaine)
-        self.isDoor = 0
+        self.__isDoor = 0
         self.gameOver = 0
 
     def __repr__(self):
@@ -45,7 +45,7 @@ class Carte:
     def get_map_situation(self,x,y):
         return self.labyrinthe[y][x]
     
-    def move_x(self,old_position,new_position):
+    def __update_map(self,old_position,new_position):
         old_x = old_position[0]
         old_y = old_position[1]
         new_x = new_position[0]
@@ -53,25 +53,28 @@ class Carte:
 
         if self.labyrinthe[new_y][new_x] != "O": 
             if self.labyrinthe[new_y][new_x] == "U":
-                print ("You win ! congrats")
                 self.gameOver = 1 
-            if self.isDoor == 1:
+            if self.__isDoor == 1:
                 self.labyrinthe[old_y][old_x] = "."
-                self.isDoor = 0 
+                self.__isDoor = 0 
             else:
                 self.labyrinthe[old_y][old_x] = " "
             if self.labyrinthe[new_y][new_x] == ".":
-                self.isDoor = 1
+                self.__isDoor = 1
             self.labyrinthe[new_y][new_x] = 'X'
             
-    def update_map(self, movement):
+    def move_robot(self, movement):
         x,y = self.get_robot_position()
-        if movement == "S":
-            new =(x,y+1)
-        elif movement == "N":
-            new =(x,y-1)
-        elif movement == "E":
-            new =(x+1,y)
-        elif movement == "O":
-            new =(x-1,y)
-        self.move_x((x,y),new)
+        movement = movement.upper()
+        if movement in ["S","N","E","O"]:
+            if movement == "S":
+                new =(x,y+1)
+            elif movement == "N":
+                new =(x,y-1)
+            elif movement == "E":
+                new =(x+1,y)
+            elif movement == "O":
+                new =(x-1,y)
+            self.__update_map((x,y),new)
+        else:
+            raise NameError("Movement must be one of the following: N S E O")
