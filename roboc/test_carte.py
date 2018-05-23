@@ -17,20 +17,27 @@ class carteTest(unittest.TestCase):
         self.assertEquals(self.myMap.get_map_situation(0,0),"O")
     
     def test_update_map(self):
+        """ move up and down"""
         self.myMap.update_map("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,2))
         self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,3))
+        """ going lef until a whole (3 walls around)"""
         self.myMap.update_map("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(7,3))
         self.myMap.update_map("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,3))
         self.myMap.update_map("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
         self.myMap.update_map("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
         self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
         self.myMap.update_map("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
+        """ go back once et move up until the wall""" 
         self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,3))
         self.myMap.update_map("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,2))
         self.myMap.update_map("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,1))
+        self.myMap.update_map("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,1))
+        """ go back donw and move right until the wall""" 
         self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,2))
         self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(7,2))
         self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,2))
+        self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,2))
+        """ go back donw to the initial position""" 
         self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,3))
         #self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,4))
         #self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,5))
