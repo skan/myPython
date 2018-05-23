@@ -13,9 +13,9 @@ class carteTest(unittest.TestCase):
         self.assertEquals(result,output)
 
     def test_get_map_situation(self):
-        self.assertEquals(self.myMap.get_map_situation(4,8),".")
-        self.assertEquals(self.myMap.get_map_situation(3,8),"X")
-        self.assertEquals(self.myMap.get_map_situation(3,9),"O")
+        self.assertEquals(self.myMap.get_map_situation(8,4),".")
+        self.assertEquals(self.myMap.get_map_situation(8,3),"X")
+        self.assertEquals(self.myMap.get_map_situation(9,3),"O")
         self.assertEquals(self.myMap.get_map_situation(0,0),"O")
 if __name__ =='__main__':
     unittest.main()

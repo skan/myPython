@@ -1,8 +1,11 @@
-display card on terminal
-read card from file
-move robot neso
+display card on terminal - done
+read card from file - done
+get robot position - done
+move robot 
+ensure movements values are correct
 robot stops on wall
 robot manages doors
+update map after robot mouvement
 robot through U : win game
 robot moves with numbers (e3)
 select easy or hard card

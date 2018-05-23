@@ -32,16 +32,16 @@ class Carte:
         print(labyrinthe_c)
     
     def get_robot_position(self):
-        i=0
-        while i < len (self.labyrinthe):
-            if 'X' in self.labyrinthe[i]:
-                j = self.labyrinthe[i].index('X')
-                return i,j
-            i +=1
+        y=0
+        while y < len (self.labyrinthe):
+            if 'X' in self.labyrinthe[y]:
+                x = self.labyrinthe[y].index('X')
+                return y,x
+            y +=1
         return 0
     
     def get_map_situation(self,x,y):
-        return self.labyrinthe[x][y]
+        return self.labyrinthe[y][x]
     
     def update_map(self, movement):
         y,x = get_robot_position()
