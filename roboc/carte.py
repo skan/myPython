@@ -18,6 +18,7 @@ class Carte:
         self.nom = nom
         self.labyrinthe = creer_labyrinthe_depuis_chaine(chaine)
         self.isDoor = 0
+        self.gameOver = 0
 
     def __repr__(self):
         return "<Carte {}>".format(self.nom)
@@ -49,7 +50,11 @@ class Carte:
         old_y = old_position[1]
         new_x = new_position[0]
         new_y = new_position[1]
-        if self.labyrinthe[new_y][new_x] == " " or self.labyrinthe[new_y][new_x] == ".":
+
+        if self.labyrinthe[new_y][new_x] != "O": 
+            if self.labyrinthe[new_y][new_x] == "U":
+                print ("You win ! congrats")
+                self.gameOver = 1 
             if self.isDoor == 1:
                 self.labyrinthe[old_y][old_x] = "."
                 self.isDoor = 0 
