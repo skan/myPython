@@ -16,6 +16,12 @@ class carteTest(unittest.TestCase):
         self.assertEquals(self.myMap.get_map_situation(9,3),"O")
         self.assertEquals(self.myMap.get_map_situation(0,0),"O")
     
+    def test_robot_composed_move(self):
+        self.myMap.move_robot("2N")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,1))
+        self.myMap.move_robot("2S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,3))
+        self.myMap.move_robot("9O")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
+        self.myMap.move_robot("8E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,3))
+
     def test_robot_move_sequence_win_simple_map(self):
         """ move up and down"""
         self.myMap.move_robot("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,2))

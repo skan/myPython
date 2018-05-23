@@ -64,17 +64,34 @@ class Carte:
             self.labyrinthe[new_y][new_x] = 'X'
             
     def move_robot(self, movement):
-        x,y = self.get_robot_position()
-        movement = movement.upper()
-        if movement in ["S","N","E","O"]:
-            if movement == "S":
-                new =(x,y+1)
-            elif movement == "N":
-                new =(x,y-1)
-            elif movement == "E":
-                new =(x+1,y)
-            elif movement == "O":
-                new =(x-1,y)
-            self.__update_map((x,y),new)
+        number = 1
+        if len(movement) > 2:
+            raise NameError("input must be one a letter+movement (3E ; 2N)")
+            return
+        elif len(movement) == 2:
+            try:
+                number = int(movement[0])
+                action = movement[1]
+            except:
+                raise ValueError ("composed moved: first letter must be an integer")
+                return
         else:
-            raise NameError("Movement must be one of the following: N S E O")
+            action = movement[0]
+
+        action = action.upper()
+        i = 0
+        while (i < number):
+            x,y = self.get_robot_position()
+            if action in ["S","N","E","O"]:
+                if action == "S":
+                    new =(x,y+1)
+                elif action == "N":
+                    new =(x,y-1)
+                elif action == "E":
+                    new =(x+1,y)
+                elif action == "O":
+                    new =(x-1,y)
+                self.__update_map((x,y),new)
+                i+=1
+            else:
+                raise NameError("Movement must be one of the following: N S E O")

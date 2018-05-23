@@ -3,20 +3,16 @@ read card from file - done
 get robot position - done
 move robot 
     move robot hardly and update map (add new x on map)  - done
-        check new x is not a wall
-        check new x is "U"
-    remove old x on map
-        get old x if is a door
-mouvement input: ensure values are correct (nseo)
-mouvements input:handle minor or upper cases
-mouvements input:handle repetitive values
-robot through U : win game
-robot moves with numbers (e3)
+        check new x is not a wall - done
+        check new x is "U"  - done
+    remove old x on map     -   done
+        get old x if is a door  -   done
+mouvement input: ensure values are correct (nseo)-   done
+mouvements input:handle minor or upper cases-   done
+robot through U : win game-   done
+
+mouvements input:handle repetitive values (e3)
 select easy or hard card
 save game at each move
 check that there is no game ongoing and select start old/new game
 
-
-update map after robot mouvement
-robot stops on wall
-robot manages doors
