@@ -2,13 +2,21 @@ display card on terminal - done
 read card from file - done
 get robot position - done
 move robot 
-ensure movements values are correct
-robot stops on wall
-robot manages doors
-update map after robot mouvement
+    move robot hardly and update map (add new x on map)  - done
+        check new x is not a wall
+        check new x is "U"
+    remove old x on map
+        get old x if is a door
+mouvement input: ensure values are correct (nseo)
+mouvements input:handle minor or upper cases
+mouvements input:handle repetitive values
 robot through U : win game
 robot moves with numbers (e3)
 select easy or hard card
 save game at each move
 check that there is no game ongoing and select start old/new game
 
+
+update map after robot mouvement
+robot stops on wall
+robot manages doors

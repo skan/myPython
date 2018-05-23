@@ -36,7 +36,7 @@ class Carte:
         while y < len (self.labyrinthe):
             if 'X' in self.labyrinthe[y]:
                 x = self.labyrinthe[y].index('X')
-                return y,x
+                return x,y
             y +=1
         return 0
     
@@ -44,12 +44,20 @@ class Carte:
         return self.labyrinthe[y][x]
     
     def update_map(self, movement):
-        y,x = get_robot_position()
-        if movement == "s":
-            pass
-        elif movement == "e":
-            pass
-        elif movement == "n":
-            pass
-        elif movement == "o":
-            pass
+        x,y = self.get_robot_position()
+        if movement == "S":
+            if (self.labyrinthe[y+1][x] == " "):
+                self.labyrinthe[y+1][x] = "X"
+                self.labyrinthe[y][x] = " "
+        elif movement == "E":
+            if (self.labyrinthe[y][x+1] == " "):
+                self.labyrinthe[y][x+1] = "X"
+                self.labyrinthe[y][x] = " "
+        elif movement == "N":
+            if (self.labyrinthe[y-1][x] == " "):
+                self.labyrinthe[y-1][x] = "X"
+                self.labyrinthe[y][x] = " "
+        elif movement == "O":
+            if (self.labyrinthe[y][x-1] == " "):
+                self.labyrinthe[y][x-1] = "X"
+                self.labyrinthe[y][x] = " "
