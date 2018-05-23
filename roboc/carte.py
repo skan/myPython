@@ -17,6 +17,7 @@ class Carte:
     def __init__(self, nom, chaine):
         self.nom = nom
         self.labyrinthe = creer_labyrinthe_depuis_chaine(chaine)
+        self.isDoor = 0
 
     def __repr__(self):
         return "<Carte {}>".format(self.nom)
@@ -43,21 +44,29 @@ class Carte:
     def get_map_situation(self,x,y):
         return self.labyrinthe[y][x]
     
+    def move_x(self,old_position,new_position):
+        old_x = old_position[0]
+        old_y = old_position[1]
+        new_x = new_position[0]
+        new_y = new_position[1]
+        if self.labyrinthe[new_y][new_x] == " " or self.labyrinthe[new_y][new_x] == ".":
+            if self.labyrinthe[new_y][new_x] == ".":
+                self.isDoor = 1
+            self.labyrinthe[new_y][new_x] = 'X'
+            if self.isDoor == 1:
+                self.labyrinthe[old_y][old_x] = "."
+                self.isDoor = 0 
+            else:
+                self.labyrinthe[old_y][old_x] = " "
+
     def update_map(self, movement):
         x,y = self.get_robot_position()
         if movement == "S":
-            if (self.labyrinthe[y+1][x] == " "):
-                self.labyrinthe[y+1][x] = "X"
-                self.labyrinthe[y][x] = " "
-        elif movement == "E":
-            if (self.labyrinthe[y][x+1] == " "):
-                self.labyrinthe[y][x+1] = "X"
-                self.labyrinthe[y][x] = " "
+            new =(x,y+1)
         elif movement == "N":
-            if (self.labyrinthe[y-1][x] == " "):
-                self.labyrinthe[y-1][x] = "X"
-                self.labyrinthe[y][x] = " "
+            new =(x,y-1)
+        elif movement == "E":
+            new =(x+1,y)
         elif movement == "O":
-            if (self.labyrinthe[y][x-1] == " "):
-                self.labyrinthe[y][x-1] = "X"
-                self.labyrinthe[y][x] = " "
+            new =(x-1,y)
+        self.move_x((x,y),new)

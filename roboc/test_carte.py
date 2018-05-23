@@ -17,11 +17,14 @@ class carteTest(unittest.TestCase):
         self.assertEquals(self.myMap.get_map_situation(0,0),"O")
     
     def test_update_map(self):
-        self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,3))
+        self.myMap.update_map("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,2))
+        self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,3))
         self.myMap.update_map("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(7,3))
         self.myMap.update_map("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,3))
         self.myMap.update_map("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
         self.myMap.update_map("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
+        self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
+        self.myMap.update_map("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
         self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,3))
         self.myMap.update_map("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,2))
         self.myMap.update_map("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,1))
@@ -29,6 +32,9 @@ class carteTest(unittest.TestCase):
         self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(7,2))
         self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,2))
         self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,3))
+        #self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,4))
+        #self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,5))
+        #self.assertEquals(self.myMap.get_map_situation(8,4),".")
 
 if __name__ =='__main__':
     unittest.main()
