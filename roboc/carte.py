@@ -50,15 +50,15 @@ class Carte:
         new_x = new_position[0]
         new_y = new_position[1]
         if self.labyrinthe[new_y][new_x] == " " or self.labyrinthe[new_y][new_x] == ".":
-            if self.labyrinthe[new_y][new_x] == ".":
-                self.isDoor = 1
-            self.labyrinthe[new_y][new_x] = 'X'
             if self.isDoor == 1:
                 self.labyrinthe[old_y][old_x] = "."
                 self.isDoor = 0 
             else:
                 self.labyrinthe[old_y][old_x] = " "
-
+            if self.labyrinthe[new_y][new_x] == ".":
+                self.isDoor = 1
+            self.labyrinthe[new_y][new_x] = 'X'
+            
     def update_map(self, movement):
         x,y = self.get_robot_position()
         if movement == "S":

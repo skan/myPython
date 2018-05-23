@@ -39,9 +39,10 @@ class carteTest(unittest.TestCase):
         self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,2))
         """ go back donw to the initial position""" 
         self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,3))
-        #self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,4))
-        #self.myMap.update_map("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,5))
-        #self.assertEquals(self.myMap.get_map_situation(8,4),".")
+        """ go down through the doord""" 
+        self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,4))
+        self.myMap.update_map("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,5))
+        self.assertEquals(self.myMap.get_map_situation(8,4),".")
 
 if __name__ =='__main__':
     unittest.main()
