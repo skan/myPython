@@ -29,9 +29,11 @@ for i, carte in enumerate(cartes):
 choice = input  ("please type the map you want to play: ")
 current_map = cartes[choice-1]
 current_map.display()
-i,j = current_map.get_robot_position()
+while current_map.gameOver == 0:
+    move = raw_input("robot mouvement : ")
+    current_map.move_robot(move)
+    current_map.display()
+
 # Si il y a une partie sauvegardée, on l'affiche, à compléter
-move = input("robot mouvement : ")
-current_map.update_map(move)
 
 # ... Complétez le programme ...

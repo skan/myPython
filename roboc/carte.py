@@ -1,4 +1,5 @@
 # -*-coding:Utf-8 -*
+import pickle
 
 """Ce module contient la classe Carte."""
 
@@ -66,14 +67,14 @@ class Carte:
     def move_robot(self, movement):
         number = 1
         if len(movement) > 2:
-            raise NameError("input must be one a letter+movement (3E ; 2N)")
+            print ("input must be one a letter+movement (3E ; 2N)")
             return
         elif len(movement) == 2:
             try:
                 number = int(movement[0])
                 action = movement[1]
             except:
-                raise ValueError ("composed moved: first letter must be an integer")
+                print ("composed moved: first letter must be an integer")
                 return
         else:
             action = movement[0]
@@ -94,4 +95,5 @@ class Carte:
                 self.__update_map((x,y),new)
                 i+=1
             else:
-                raise NameError("Movement must be one of the following: N S E O")
+                print ("Movement must be one of the following: N S E O")
+                return

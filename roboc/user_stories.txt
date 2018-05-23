@@ -11,8 +11,9 @@ mouvement input: ensure values are correct (nseo)-   done
 mouvements input:handle minor or upper cases-   done
 robot through U : win game-   done
 
-mouvements input:handle repetitive values (e3)
-select easy or hard card
+mouvements input:handle repetitive values (e3)  -   done
 save game at each move
 check that there is no game ongoing and select start old/new game
+
+select easy or hard card
 
