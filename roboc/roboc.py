@@ -29,9 +29,9 @@ for i, carte in enumerate(cartes):
 choice = input  ("please type the map you want to play: ")
 current_map = cartes[choice-1]
 current_map.display()
-#afficher_labyrinthe(current_map.labyrinthe)
 i,j = current_map.get_robot_position()
-print ("{0} {1}".format(i,j))
 # Si il y a une partie sauvegardée, on l'affiche, à compléter
+move = input("robot mouvement : ")
+current_map.update_map(move)
 
 # ... Complétez le programme ...

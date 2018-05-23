@@ -39,3 +39,17 @@ class Carte:
                 return i,j
             i +=1
         return 0
+    
+    def get_map_situation(self,x,y):
+        return self.labyrinthe[x][y]
+    
+    def update_map(self, movement):
+        y,x = get_robot_position()
+        if movement == "s":
+            pass
+        elif movement == "e":
+            pass
+        elif movement == "n":
+            pass
+        elif movement == "o":
+            pass

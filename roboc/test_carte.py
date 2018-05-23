@@ -7,10 +7,15 @@ class carteTest(unittest.TestCase):
         self.easyMap     = "OOOOOOOOOO\nO O    O O\nO . OO   O\nO O O   XO\nO OOOO O.O\nO O O    U\nO OOOOOO.O\nO O      O\nO O OOOOOO\nO . O    O\nOOOOOOOOOO\n"
         self.myMap = Carte("test",self.easyMap)
         
-    def test_getRobotPosition(self):
+    def test_get_robot_position(self):
         output=(3,8)
         result = self.myMap.get_robot_position()
         self.assertEquals(result,output)
 
+    def test_get_map_situation(self):
+        self.assertEquals(self.myMap.get_map_situation(4,8),".")
+        self.assertEquals(self.myMap.get_map_situation(3,8),"X")
+        self.assertEquals(self.myMap.get_map_situation(3,9),"O")
+        self.assertEquals(self.myMap.get_map_situation(0,0),"O")
 if __name__ =='__main__':
     unittest.main()
