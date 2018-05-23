@@ -28,20 +28,20 @@ class carteTest(unittest.TestCase):
         self.myMap.move_robot("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,3))
         """ going lef until a whole (3 walls around)"""
         self.myMap.move_robot("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(7,3))
-        self.myMap.move_robot("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,3))
+        self.myMap.move_robot("h")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,3))
         self.myMap.move_robot("o")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
         self.myMap.move_robot("O")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
-        self.myMap.move_robot("s")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
+        self.myMap.move_robot("j")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
         self.myMap.move_robot("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(5,3))
         """ go back once et move up until the wall""" 
         self.myMap.move_robot("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,3))
         self.myMap.move_robot("n")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,2))
-        self.myMap.move_robot("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,1))
+        self.myMap.move_robot("k")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,1))
         self.myMap.move_robot("N")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,1))
         """ go back donw and move right until the wall""" 
         self.myMap.move_robot("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(6,2))
         self.myMap.move_robot("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(7,2))
-        self.myMap.move_robot("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,2))
+        self.myMap.move_robot("l")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,2))
         self.myMap.move_robot("E")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,2))
         """ go back donw to the initial position""" 
         self.myMap.move_robot("S")  ;   self.assertEquals(self.myMap.get_robot_position(),(8,3))

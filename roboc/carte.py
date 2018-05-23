@@ -83,17 +83,17 @@ class Carte:
         i = 0
         while (i < number):
             x,y = self.get_robot_position()
-            if action in ["S","N","E","O"]:
-                if action == "S":
+            if action in ["S","N","E","O", "J", "K","L","H"]:
+                if action == "S" or action == "J":
                     new =(x,y+1)
-                elif action == "N":
+                elif action == "N" or action == "K":
                     new =(x,y-1)
-                elif action == "E":
+                elif action == "E" or action == "L":
                     new =(x+1,y)
-                elif action == "O":
+                elif action == "O" or action == "H":
                     new =(x-1,y)
                 self.__update_map((x,y),new)
                 i+=1
             else:
-                print ("Movement must be one of the following: N S E O")
+                print ("Movement must be navigation keys N S E O, or vi navigation keys J K H L")
                 return
