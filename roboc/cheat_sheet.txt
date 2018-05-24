@@ -1,0 +1,160 @@
+type: int float bool str
+      list     [] [1,5,9] ["x",11,8.9] ["mot"]
+      tuple    () (1,5,9) "x",11,8.9   ("mot",)
+      dict     {} {"clé":"valeur"}
+      set      set() {cle1,cle2}
+conversions
+      int("15")
+      int(15.56)
+      float("-11.24e8")
+      str(78.3)
+      list("abc") --> ['a','b','c']
+      dict([(1,a),(2,b)]) --> {1:a,2:b}
+      set([1,2,2]) --> {1,2}
+      "_".joint(["bonjour","skander"]) --> "bonjour_skander"
+      "bonjours skander hamza".split() --> ["bonjour","skander","hamza"]
+         "1,4,8,2".split(",")  --> [1,4,8,2]
+affectations:
+      a,b = 2,3.5 
+      x = None
+affichage/saise
+      print("bonjour","skander",sep="_",end="\n",file=f
+         sep=" "    sepateur d'element , (default = space)
+         end="\n"   fin d'affichage    , (default, fin de ligne)
+         file=f()   print to file      , (default, standard outptut)
+      a = input("directives")
+         input always return char, must be converted to desired type
+containers operations
+     len (c)  sorted(c) min(c) max(c) sum(c)
+     val in c
+     reversed(c)
+     c * 5        --> duplication
+     c + c2       --> concat
+     c.index(val) --> position
+     c.count(val) --> number of occurences
+list operations
+      lst.append(item)     --> add item at the end of the list
+      lst.extend(seq)      --> add sequence of element at the end
+      lst.insert(idx,val)  --> insert element at idx position
+      lst.remove (val)     --> remove item correspondant to value
+      lst.pop(idx)         --> remove item correspondant to index and return the value
+      lst.sort()
+      lst.reverse
+dict operations
+      d[key] = value
+      d[key] --> return value
+      d.clear()
+      del d[key]
+      d.update(d2)         --> update / add couples
+      d.keys()
+      d.values()
+      d.items()
+      d.pop(key)
+set operations 
+      operators: |   &  -   ^(sym difference)
+                  w w= > >= --> inclusion relations
+      s.update(s2)
+      s.add(key)
+      s.remove(key)
+      s.discard(key)
+files
+   f=open(nom[,mode][,encoding=..])
+      f=open("file.txt","w", encoding="utf8")
+      mode: r (default) 'w' 'a' '+'(lecture ecriture) 'b'
+      .write(s) .read() .readline() .flush() .close() .readlines()
+   f.write("coucou")
+   s = fread(4) (if nombre of char to set, return all file content)
+   s = readline()
+   f.close
+   for ligne in f
+format
+   "model {} {} ".format(x,y) --> str
+   {selection:format!conversion}
+         conversion: s(lisible text) r(litteral representation)
+         format: car-rempl
+         align    < > ^ =
+         signe    + - space
+         larg.mini.precision~larg.max     0 at beginning for 0 filling
+funtions
+   def functName(x,y=4,*args,**kwargs)
+      ...
+      return ret
+         x        -> simple param
+         y        -> param with default value
+         args     -> variable number of param (tuple)
+         **kwargs -> variable number of named params (dict)
+         ret : tuple (returns many values)
+         call 
+            res= functName(expr,param=expr,*tuple,**dict)
+   lambda x,y: x+y   
+
+looping
+   while condition:
+      ...
+   else:
+      ... excuted at the end of the while is not left using break
+errors 
+   try :
+      ...
+   except:
+      ...
+special methods
+   o --> self
+   len (o)           --> __len__(self):
+   o[key]            --> __getitem__(self,key):
+   o[key]=val        --> __setitem__(self,key,val):
+   del o[key]        --> __delitem__(self,key):
+   for i in o        --> __iter__(self)
+   reversed(o)       --> __reversed__(self)
+   x in o            --> __contains__(self,x)
+   [deb:fin:pas]     --> tranche: slice (deb,fin,pas)
+                           .start .stop .step. indices(longueur)
+   iterateur         --> __iter__(self)             
+                         __next__(self)
+   print(o)          --> __str__(self)
+   o                 --> __repr__(self)
+   access attributes
+      def __getattr__(self,nom):          # appelé si nom non trouvé en attribut existant
+      def __getattribute__(self,nom):     # appelé dans tous les cas d’accès à nom
+      def __setattr__(self,nom,valeur):
+      def __delattr__(self,nom):
+      def __dir__(self): # retourne une liste
+   Property
+      class C(object):
+         def getx(self):
+         def setx(self,valeur):
+         def delx(self):
+         x = property(getx,setx,delx,"docx")
+
+      # Plus simple, accesseurs à y, avec des décorateurs
+      @property
+      def y(self): # lecture
+         ""docy""
+      @y.setter
+         def y(self,valeur): # modification
+      @y.deleter
+         def y(self): # suppression
+   Protocole Descripteurs
+   o.x         --> def __get__(self,o,classe_de_o):
+   o.x=v       --> def __set__(self,o,v):
+   del o.x     --> def __delete__(self,o):"
+
+
+not Explored: 
+   Utilisation d un objet comme une fonction (callable) :
+      o(params)? def __call__(self[,params…]):
+   methode speiale hachage
+      Pour stockage efficace dans dict et set.
+         hash(o) ? def __hash__(self):
+            Définir à None si objet non hachable.
+   metaclass
+   __prepare__ = callable
+   def __new__(cls[,params...]): # allocation et retour d un nouvel objet cls
+      isinstance(o,cls)
+      --> def __instancecheck__(cls,o):
+      isssubclass(sousclasse,cls)
+      --> def __subclasscheck__(cls,sousclasse):
+
+copy list:
+   import copy
+   list2 = copy.copy(list1)
