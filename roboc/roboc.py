@@ -4,11 +4,7 @@ import os.path
 import os
 from carte import *
 
-"""Ce fichier contient le code principal du jeu.
-
-    Exécutez-le avec Python pour lancer le jeu.
-
-    """
+# check if there is a saved game
 file_path= "savedGames/saved_game"
 if os.path.exists(file_path):
     with open(file_path,'r') as f:
@@ -19,12 +15,15 @@ if os.path.exists(file_path):
                 choice = raw_input  ("you have a game ongoing, do you want to load it y/n ?: ")
                 if (choice.upper() =='Y'):
                     current_map = loaded_card
+                    break
                 if (choice.upper() =='N'):
                     break
 
+# Propose map selection if no game loaded
 try:
     current_map
 except NameError:
+    # Load all cartes folder content
     cartes = []
     for nom_fichier in os.listdir("cartes"):
         if nom_fichier.endswith(".txt"):
@@ -33,31 +32,27 @@ except NameError:
             with open(chemin, "r") as fichier:
                 contenu = fichier.read()
                 cartes.append (Carte(nom_carte,contenu))
-                # Création d'une carte, à compléter
 
-    # On affiche les cartes existantes
-    print("Labyrinthes existants :")
+    # Display existing cards
+    print("Existing labyrinths :")
     for i, carte in enumerate(cartes):
         print("  {} - {}".format(i + 1, carte.nom))
     while 1:
         try :
             choice = int (raw_input  ("please type the map you want to play: "))
+            if choice < (len(cartes) + 1):
+                current_map = cartes[choice - 1]
+                break
         except ValueError:
             print ("this is not an int")
-        if choice < (len(cartes) + 1):
-            current_map = cartes[choice - 1]
-            break
-
+        # Star of the game 
 current_map.display()
 while current_map.gameOver == 0:
     move = raw_input("robot mouvement : ")
     current_map.move_robot(move)
-    current_map.display()
     """ save the game """
+    current_map.display()
     with open(file_path,'w') as f:
         my_pickler = pickle.Pickler(f)
         my_pickler.dump(current_map)
 
-# Si il y a une partie sauvegardée, on l'affiche, à compléter
-
-# ... Complétez le programme ...
