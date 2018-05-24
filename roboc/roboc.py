@@ -15,9 +15,12 @@ if os.path.exists(file_path):
         my_depickler = pickle.Unpickler(f)
         loaded_card = my_depickler.load()
         if loaded_card.gameOver == 0:
-            choice = raw_input  ("you have a game ongoing, do you want to load it y/n ?")
-            if (choice.upper() =='Y'):
-                current_map = loaded_card
+            while 1:
+                choice = raw_input  ("you have a game ongoing, do you want to load it y/n ?: ")
+                if (choice.upper() =='Y'):
+                    current_map = loaded_card
+                if (choice.upper() =='N'):
+                    break
 
 try:
     current_map
