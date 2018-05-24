@@ -39,8 +39,14 @@ except NameError:
     print("Labyrinthes existants :")
     for i, carte in enumerate(cartes):
         print("  {} - {}".format(i + 1, carte.nom))
-    choice = int (input  ("please type the map you want to play: "))
-    current_map = cartes[choice - 1]
+    while 1:
+        try :
+            choice = int (raw_input  ("please type the map you want to play: "))
+        except ValueError:
+            print ("this is not an int")
+        if choice < (len(cartes) + 1):
+            current_map = cartes[choice - 1]
+            break
 
 current_map.display()
 while current_map.gameOver == 0:
